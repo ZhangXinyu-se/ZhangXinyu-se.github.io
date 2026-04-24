@@ -3,100 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xinyu Zhang - Personal Homepage</title>
+    <title>Xinyu Zhang - Homepage</title>
     <link rel="icon" href="profile.jpg">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        body {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             color: #333;
         }
+
+        body {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #ffffff;
+        }
+
+        /* 导航栏 */
+        nav {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin-right: 40px;
+            color: #666;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        /* 整体布局：左右两栏 */
+        .container {
+            display: flex;
+            gap: 50px;
+        }
+
+        /* 左侧个人信息栏 */
+        .sidebar {
+            width: 220px;
+            flex-shrink: 0;
+        }
+
         .avatar {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
-        h1 {
-            font-size: 28px;
+
+        .sidebar h1 {
+            font-size: 24px;
+            text-align: center;
             margin-bottom: 10px;
         }
-        h2 {
-            font-size: 20px;
-            margin: 25px 0 10px;
-            color: #2c3e50;
+
+        .sidebar .affiliation {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
         }
-        .contact {
-            margin: 15px 0;
+
+        .sidebar .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+            color: #666;
         }
-        .contact a {
-            color: #0077b5;
+
+        .sidebar .info-item a {
+            color: #0066cc;
             text-decoration: none;
         }
-        .contact a:hover {
-            text-decoration: underline;
+
+        /* 右侧主内容区 */
+        .main-content {
+            flex: 1;
         }
+
         .section {
-            margin: 20px 0;
+            margin-bottom: 35px;
         }
-        ul {
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
             list-style: none;
-            padding-left: 10px;
+            padding-left: 0;
         }
-        li {
-            margin: 8px 0;
+
+        .section li {
+            margin: 12px 0;
+            line-height: 1.6;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        /* 给列表项加小图标 */
+        .section li::before {
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        /* 项目/奖项列表的小图标 */
+        .projects li::before {
+            content: "💻";
+        }
+
+        .awards li::before {
+            content: "🏆";
+        }
+
+        .activities li::before {
+            content: "📚";
         }
     </style>
 </head>
 <body>
-    <!-- 头像 -->
-    <img src="profile.jpg" alt="Xinyu Zhang" class="avatar">
-    
-    <!-- 基本信息 -->
-    <h1>Xinyu Zhang</h1>
-    <p>Undergraduate Student | Software Engineering | Henan University</p>
-    <p>Shangqiu, Henan, China</p>
+    <!-- 导航栏（可选，不想要可以删掉） -->
+    <nav>
+        <a href="#">Homepage</a>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#awards">Awards</a>
+        <a href="#activities">Student Activities</a>
+    </nav>
 
-    <!-- 联系方式 -->
-    <div class="contact">
-        <p>Email: <a href="mailto:zhangxinyu0112@henu.edu.cn">zhangxinyu0112@henu.edu.cn</a></p>
-        <p>GitHub: <a href="https://github.com/ZhangXinyu-se" target="_blank">ZhangXinyu-se</a></p>
-    </div>
+    <div class="container">
+        <!-- 左侧：照片+个人信息 -->
+        <div class="sidebar">
+            <img src="profile.jpg" alt="Xinyu Zhang" class="avatar">
+            <h1>Xinyu Zhang</h1>
+            <p class="affiliation">Henan University</p>
 
-    <!-- 教育背景 -->
-    <div class="section">
-        <h2>Education</h2>
-        <ul>
-            <li>2022.09 - 2026.06 (Expected) | Henan University | Software Engineering (Undergraduate)</li>
-        </ul>
-    </div>
+            <div class="info-item">
+                <span>📍</span>
+                <span>Kaifeng, China</span>
+            </div>
+            <div class="info-item">
+                <span>✉️</span>
+                <a href="mailto:zhangxinyu0112@henu.edu.cn">zhangxinyu0112@henu.edu.cn</a>
+            </div>
+            <div class="info-item">
+                <span>🐙</span>
+                <a href="https://github.com/ZhangXinyu-se" target="_blank">GitHub</a>
+            </div>
+            <div class="info-item">
+                <span>🔗</span>
+                <a href="#" target="_blank">LinkedIn</a>
+            </div>
+        </div>
 
-    <!-- 获奖经历 -->
-    <div class="section">
-        <h2>Honors & Awards</h2>
-        <ul>
-            <li>2025 National Third Prize, China Collegiate Computing Contest</li>
-            <li>2025 Provincial First Prize, "Xinhua Cup" IT Knowledge Competition</li>
-            <li>2024 Provincial Second Prize, National College Student Mathematics Competition</li>
-        </ul>
-    </div>
+        <!-- 右侧：主内容 -->
+        <div class="main-content">
+            <!-- About Me 部分 -->
+            <div id="about" class="section">
+                <div class="section-title">
+                    <span>👋</span>
+                    About Me
+                </div>
+                <p>
+                    Hi! I'm <strong>Xinyu Zhang</strong>, a third-year undergraduate student majoring in <strong>Software Engineering</strong> at Henan University.
+                    My research interests include 🧠 <strong>Artificial Intelligence</strong>, 📊 <strong>Data Mining</strong>, and 🐞 <strong>Intelligent Pest Detection</strong>.
+                    I'm actively looking forward to exploring more opportunities in the AI field.
+                </p>
+            </div>
 
-    <!-- 项目经历（可选） -->
-    <div class="section">
-        <h2>Projects</h2>
-        <ul>
-            <li>Pest Detection System based on YOLOv8 (2025)</li>
-            <li>Web Data Mining & Analysis Project (2024)</li>
-        </ul>
+            <!-- 项目经历 -->
+            <div id="projects" class="section">
+                <div class="section-title">
+                    <span>💻</span>
+                    Projects
+                </div>
+                <ul class="projects">
+                    <li>
+                        <strong>Pest Detection System based on YOLOv8</strong> (2025)<br>
+                        Developed an AI-based system to identify crop pests using computer vision, improving detection accuracy by 44%.
+                    </li>
+                    <li>
+                        <strong>Web Data Mining & Analysis Project</strong> (2024)<br>
+                        Built a Python-based crawler and analysis tool to extract and visualize data from public web sources.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 奖项获得情况 -->
+            <div id="awards" class="section">
+                <div class="section-title">
+                    <span>🏆</span>
+                    Honors & Awards
+                </div>
+                <ul class="awards">
+                    <li>2025 National Third Prize, China Collegiate Computing Contest</li>
+                    <li>2025 Provincial First Prize, "Xinhua Cup" IT Knowledge Competition</li>
+                    <li>2024 Provincial Second Prize, National College Student Mathematics Competition</li>
+                </ul>
+            </div>
+
+            <!-- 学生工作 & 兴趣爱好 -->
+            <div id="activities" class="section">
+                <div class="section-title">
+                    <span>📚</span>
+                    Student Activities & Hobbies
+                </div>
+                <ul class="activities">
+                    <li>
+                        <strong>Class League Secretary</strong> (2022-Present)<br>
+                        Responsible for organizing league activities and managing class affairs.
+                    </li>
+                    <li>
+                        <strong>Volunteer Work</strong><br>
+                        Participated in various community service activities, including rural education support and environmental protection campaigns.
+                    </li>
+                    <li>
+                        <strong>Hobbies</strong>: 🎵 Music, 📚 Reading, 🎮 Video Games, 🧩 Puzzle Solving
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>
